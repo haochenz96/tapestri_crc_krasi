@@ -11,7 +11,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # load references
-ref = "../panel_design/panel1/Rona_CRC_tapestri_design.xlsx"
+ref = "ref/Rona_CRC_tapestri_design.xlsx"
 ref = pd.read_excel(ref)
 ref = ref[ref["type"].isin(["snv", "sv"])]
 ref['condensed_format'] = "chr" + ref["chromosome"].astype(str) + ":" + ref["start"].astype(int).astype(str)
@@ -216,13 +216,13 @@ for amplicon_i in nb_res.index:
         print('=' * 8)
         print(f'[WARNING] {amplicon_i} did not converge')
 
-ref_df = pd.read_csv("/Users/haochenzhang/Iacobuzio_lab/Tapestri_ry/panel_design/ry_amp_gene_map.csv", )
+ref_df = pd.read_csv("ref/ry_amp_gene_map.csv", )
 ref_df.index = ref_df['amplicon_number']
 nb_res_df['gene'] = ref_df.loc[
     nb_res_df['amplicon'],
     'gene_name'
 ] # get mapped gene names
-nb_res_df.to_csv('ry_panel_train_normal_results.csv', index=False, header=True)
+nb_res_df.to_csv('cn_analysis/ry_panel_train_normal_results.csv', index=False, header=True)
 
 print('[INFO] NB training results saved to:', 'ry_panel_train_normal_results.tsv')
 
