@@ -224,7 +224,7 @@ nb_res_df['gene'] = ref_df.loc[
 ] # get mapped gene names
 nb_res_df.to_csv('cn_analysis/ry_panel_train_normal_results.csv', index=False, header=True)
 
-print('[INFO] NB training results saved to:', 'ry_panel_train_normal_results.tsv')
+print('[INFO] NB training results saved to:', 'cn_analysis/ry_panel_train_normal_results.tsv')
 
 # %%
 import plotly.express as px
@@ -232,7 +232,7 @@ from tea.utils import rgb_string_to_hex
 
 smp.cnv.row_attrs['label'] = smp.dna.row_attrs['label']
 smp.cnv.set_palette(cn_clone_palette)
-smp.cnv.get_gene_names('ry_panel_train_normal_results.csv', gene_name_col = 'gene')
+smp.cnv.get_gene_names('cn_analysis/ry_panel_train_normal_results.csv', gene_name_col = 'gene')
 smp.cnv.var = pd.DataFrame.from_dict(smp.cnv.col_attrs).set_index("id")
 raw_rc = smp.cnv.get_attribute('read_counts', constraint='row')
 
