@@ -131,7 +131,7 @@ fig
 
 
 #%%
-# fig.write_image("RY_combined_sc_heatmap.pdf", scale=4)
+fig.write_image("RY_combined_sc_heatmap.pdf", scale=4)
 os.makedirs("raw_data_for_figures", exist_ok=True)
 smp.dna.get_attribute("AF_MISSING", features = VOI, constraint="row").to_csv(
     "raw_data_for_figures/RY_combined_sc_heatmap_af_missing.csv"
